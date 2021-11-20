@@ -22,7 +22,7 @@ def _aboutwindow():
     labelheadline.pack()
     labelTitle.pack(pady=50)
     labelAuthor.pack()
-    newwin.mainloop()
+    aboutwin.mainloop()
 
 
 
