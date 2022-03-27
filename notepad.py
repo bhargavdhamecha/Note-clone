@@ -17,19 +17,21 @@ def _aboutwindow():
     Label(aboutwin, text="This is new window.")
     labelheadline = Label(aboutwin, text="Version:2021.00.01")
     labelTitle = Label(aboutwin, text="Notepad")
-    labelAuthor = Label(aboutwin, text="Rights reserved ©BHARGAV DHAMECHA")
+    labelAuthor = Label(aboutwin, text="Created By BHARGAV DHAMECHA")
     labelTitle.configure(font=("Verdana", 30))
     labelheadline.pack()
     labelTitle.pack(pady=50)
     labelAuthor.pack()
     aboutwin.mainloop()
 
+def _newfile():
+    main()
 
 
 if __name__ == '__main__':
     root = Tk()
     root.title("Untitled - Notepad")
-    root.iconbitmap(r'E:\Extra\Python\Notepad\notepad.ico')
+    root.iconbitmap(r'.\notepad.ico')
     root.geometry("644x588")
     
 
@@ -48,15 +50,15 @@ if __name__ == '__main__':
     root.config(menu=menuBar)  
     #File Menu  
     fileMenu= Menu(menuBar, tearoff=0)  
-    fileMenu.add_command(label="New")  
+    fileMenu.add_command(label="New",command=_newfile)  
     fileMenu.add_separator()  
     fileMenu.add_command(label="Exit", command=_quit)  
     menuBar.add_cascade(label="File", menu=fileMenu)
     #Edit menu
     editMenu= Menu(menuBar, tearoff=0)
-    editMenu.add_command(label="cut")
-    editMenu.add_command(label="copy")
-    editMenu.add_command(label="paste")
+    editMenu.add_command(label="cut", accelerator="Ctrl+X" ,command=lambda: root.focus_get().event_generate("<<Cut>>"))
+    editMenu.add_command(label="copy", accelerator="Ctrl+C" ,command=lambda: root.focus_get().event_generate("<<Copy>>"))
+    editMenu.add_command(label="paste", accelerator="Ctrl+V" ,command=lambda: root.focus_get().event_generate("<<Paste>>"))
     editMenu.add_command(label="delete")
     menuBar.add_cascade(label="Edit", menu=editMenu)
     #Help Menu  
