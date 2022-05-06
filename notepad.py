@@ -31,7 +31,7 @@ def _newfile():
 if __name__ == '__main__':
     root = Tk()
     root.title("Untitled - Notepad")
-    root.iconbitmap(r'.\notepad.ico')
+    root.iconbitmap(r'.\assets\notepad.ico')
     root.geometry("644x588")
     
 
